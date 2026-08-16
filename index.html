@@ -12,11 +12,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 @font-face{font-family:'Inter Italic';src:url('./assets/Inter-Italic.ttf') format('truetype-variations');font-weight:100 900;font-style:italic}
-body{margin:0;background:#ffffff;font-family:'Inter Italic','Inter Italic','Space Grotesk',sans-serif}
+body{margin:0;background:#ffffff;font-family:'Inter Italic','Inter Italic','Space Grotesk',sans-serif;overscroll-behavior:none;-webkit-tap-highlight-color:transparent}
 a{color:#04142f}
 a:hover{color:#0f2d72}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes swapIn{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideInRight{from{opacity:0;transform:translateX(32px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-32px)}to{opacity:1;transform:translateX(0)}}
 @keyframes prizePop{0%{opacity:0;transform:scale(.75) rotate(-6deg)}55%{opacity:1;transform:scale(1.08) rotate(2deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
 .items-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media(max-width:451px){.items-grid{grid-template-columns:repeat(2,1fr)}}
@@ -29,9 +31,7 @@ a:hover{color:#0f2d72}
     <img src="./assets/dot-logo.png" alt="DOT" style="height:52px;display:block">
   </div>
 
-  <div style="border-bottom:2px solid #04142f;overflow:hidden">
-    <img src="./assets/banner-oferta.png" alt="Promoção DOT" style="width:100%;display:block">
-  </div>
+  <div style="border-bottom:2px solid #04142f;width:100%;padding-top:45.83%;background-image:repeating-conic-gradient(#ccc 0% 25%,#e8e8e8 0% 50%);background-size:20px 20px"></div>
 
   <div style="background:#fceb2e;overflow:hidden;white-space:nowrap;padding:4px 0">
     <div style="display:inline-block;animation:marquee 32s linear infinite">
@@ -40,8 +40,8 @@ a:hover{color:#0f2d72}
   </div>
 
   <div style="padding:10px 18px 0;display:flex;flex-direction:column">
-<div style="margin-top:0;font:700 26px/1.2 'Space Grotesk',sans-serif;color:#04142f;letter-spacing:-.3px">RECARREGUE SUA ENERGIA E GANHE <span style="background:#fceb2e;color:#04142f;padding:2px 6px;border-radius:3px">4 BRINDES GRÁTIS</span></div>
-    <div style="margin-top:18px;font:400 17px/1.5 'Space Grotesk',sans-serif;font-style:normal;color:#000">Compre 2 Pouches do seu sabor favorito e ganhe o <strong>3º Pouch de Graça + Mousepad DOT + Apoio de Teclado DOT + Frete Grátis</strong></div>
+<div style="margin-top:0;font:700 26px/1.2 'Space Grotesk',sans-serif;color:#04142f;letter-spacing:-.3px">RECARREGUE SUA ENERGIA E GANHE <span style="background:#fceb2e;color:#04142f;padding:2px 6px;border-radius:3px">5 BRINDES GRÁTIS</span></div>
+    <div style="margin-top:18px;font:400 17px/1.5 'Space Grotesk',sans-serif;font-style:normal;color:#000">Compre 3 Pouches do seu sabor favorito e ganhe o <strong>4º Pouch de Graça + Mouse Pad DOT + Apoio de Teclado DOT + Bloco de Anotações + Frete Grátis</strong></div>
     <div onClick="{{ openSheet }}" style="margin-top:22px;background:#fceb2e;color:#04142f;padding:18px;border-radius:8px;font:700 17px 'Inter Italic','Space Grotesk',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-hover="background:#0d2040"><span>CLIQUE AQUI</span><span style="font-size:20px;line-height:1">→</span></div>
 
     <div onClick="{{ openSheet }}" style="margin-top:24px;border:1px solid #04142f;border-radius:6px;overflow:hidden;background:#ffffff;cursor:pointer">
@@ -49,23 +49,31 @@ a:hover{color:#0f2d72}
       <div style="padding:16px">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0">
           <div style="display:flex;align-items:center;gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#1f9d55;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:8px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(0.5px,-1px)"></span></span><span style="font:600 14px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">1x Pouch do seu sabor</span></div>
-          <span style="background:#fceb2e;color:#04142f;font:800 13px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">R$ 162,49</span>
+          <span style="background:#fceb2e;color:#04142f;font:800 13px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">R$ 143,30</span>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0">
           <div style="display:flex;align-items:center;gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#1f9d55;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:8px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(0.5px,-1px)"></span></span><span style="font:600 14px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">1x Pouch do seu sabor</span></div>
-          <span style="background:#fceb2e;color:#04142f;font:800 13px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">R$ 162,49</span>
+          <span style="background:#fceb2e;color:#04142f;font:800 13px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">R$ 143,30</span>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0">
-          <div style="display:flex;align-items:center;gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#1f9d55;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:8px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(0.5px,-1px)"></span></span><span style="font:600 14px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">Pouch Melancia com Limão</span></div>
-          <div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span style="font:600 13px 'Inter Italic','Space Grotesk',sans-serif;color:#e11d2e;text-decoration:line-through">R$ 162,49</span><span style="background:#fceb2e;color:#04142f;font:800 11.5px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">GRÁTIS</span></div>
+          <div style="display:flex;align-items:center;gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#1f9d55;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:8px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(0.5px,-1px)"></span></span><span style="font:600 14px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">1x Pouch do seu sabor</span></div>
+          <span style="background:#fceb2e;color:#04142f;font:800 13px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">R$ 143,30</span>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0">
-          <div style="display:flex;align-items:center;gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#1f9d55;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:8px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(0.5px,-1px)"></span></span><span style="font:600 14px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">Mousepad DOT</span></div>
-          <div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span style="font:600 13px 'Inter Italic','Space Grotesk',sans-serif;color:#e11d2e;text-decoration:line-through">R$ 39,90</span><span style="background:#fceb2e;color:#04142f;font:800 11.5px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">GRÁTIS</span></div>
+          <div style="display:flex;align-items:center;gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#1f9d55;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:8px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(0.5px,-1px)"></span></span><span style="font:600 14px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">1x Pouch do seu sabor</span></div>
+          <div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span style="font:600 13px 'Inter Italic','Space Grotesk',sans-serif;color:#e11d2e;text-decoration:line-through">R$ 143,30</span><span style="background:#fceb2e;color:#04142f;font:800 11.5px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">GRÁTIS</span></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0">
+          <div style="display:flex;align-items:center;gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#1f9d55;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:8px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(0.5px,-1px)"></span></span><span style="font:600 14px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">Mouse Pad DOT</span></div>
+          <div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span style="font:600 13px 'Inter Italic','Space Grotesk',sans-serif;color:#e11d2e;text-decoration:line-through">R$ 29,90</span><span style="background:#fceb2e;color:#04142f;font:800 11.5px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">GRÁTIS</span></div>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0">
           <div style="display:flex;align-items:center;gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#1f9d55;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:8px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(0.5px,-1px)"></span></span><span style="font:600 14px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">Apoio de Teclado DOT</span></div>
-          <div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span style="font:600 13px 'Inter Italic','Space Grotesk',sans-serif;color:#e11d2e;text-decoration:line-through">R$ 44,70</span><span style="background:#fceb2e;color:#04142f;font:800 11.5px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">GRÁTIS</span></div>
+          <div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span style="font:600 13px 'Inter Italic','Space Grotesk',sans-serif;color:#e11d2e;text-decoration:line-through">R$ 34,90</span><span style="background:#fceb2e;color:#04142f;font:800 11.5px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">GRÁTIS</span></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0">
+          <div style="display:flex;align-items:center;gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#1f9d55;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:8px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(0.5px,-1px)"></span></span><span style="font:600 14px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">Bloco de Anotações</span></div>
+          <div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span style="font:600 13px 'Inter Italic','Space Grotesk',sans-serif;color:#e11d2e;text-decoration:line-through">R$ 34,90</span><span style="background:#fceb2e;color:#04142f;font:800 11.5px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">GRÁTIS</span></div>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0">
           <div style="display:flex;align-items:center;gap:8px"><span style="width:19px;height:19px;border-radius:50%;background:#1f9d55;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:8px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(0.5px,-1px)"></span></span><span style="font:600 14px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">Frete Grátis</span></div>
@@ -74,14 +82,14 @@ a:hover{color:#0f2d72}
         <div style="border-top:1px solid rgba(4,20,47,.15);margin-top:8px;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px">
           <div style="display:flex;flex-direction:column;gap:2px">
             <span style="font:600 10px 'Inter Italic','Space Grotesk',sans-serif;color:rgba(4,20,47,.5);text-transform:uppercase;letter-spacing:.4px">Valor por sachê</span>
-            <span style="font:700 18px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">R$ 4,33</span>
+            <span style="font:700 18px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">R$ 4,30</span>
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
             <div style="display:flex;align-items:center;gap:8px">
-              <span style="font:600 11px 'Inter Italic','Space Grotesk',sans-serif;color:#e11d2e;text-decoration:line-through">R$ 579,97</span>
-              <span style="font:700 26px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">R$ 324,98</span>
+              <span style="font:600 11px 'Inter Italic','Space Grotesk',sans-serif;color:#e11d2e;text-decoration:line-through">R$ 702,80</span>
+              <span style="font:700 26px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">R$ 429,90</span>
             </div>
-            <span style="background:#fceb2e;color:#04142f;font:800 11.5px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">ou 3x R$ 108,30 s/ juros</span>
+            <span style="background:#fceb2e;color:#04142f;font:800 11.5px 'Inter Italic','Space Grotesk',sans-serif;padding:4px 9px;border-radius:4px">ou 3x R$ 143,30 s/ juros</span>
           </div>
         </div>
       </div>
@@ -90,19 +98,24 @@ a:hover{color:#0f2d72}
 
     <div style="margin-top:14px;display:flex;gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:10px 4px 8px;scrollbar-width:none;scroll-snap-type:x mandatory;justify-content:safe center">
       <div style="position:relative;border-radius:10px;width:26%;flex:0 0 26%;border:1px solid #04142f;padding-top:9px;display:flex;flex-direction:column;overflow:visible;scroll-snap-align:center">
-        <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#fceb2e;color:#04142f;border:1px solid #04142f;border-radius:20px;padding:2px 7px;font:700 11px 'Inter Italic','Space Grotesk',sans-serif;white-space:nowrap">GRÁTIS <span style="text-decoration:line-through;font-weight:600">R$162,49</span></div>
-        <div data-lightbox="./assets/pouch-melancia.png" style="width:100%;aspect-ratio:1;background:#f0f3fb;border-radius:8px 8px 0 0;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in"><img src="./assets/pouch-melancia.png" alt="Pouch Melancia com Limão" style="width:100%;height:100%;object-fit:contain;pointer-events:none"></div>
-        <div style="padding:4px 4px 6px;font:600 10px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f;text-align:center">Pouch Melancia com Limão</div>
+        <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#fceb2e;color:#04142f;border:1px solid #04142f;border-radius:20px;padding:2px 7px;font:700 11px 'Inter Italic','Space Grotesk',sans-serif;white-space:nowrap">GRÁTIS <span style="text-decoration:line-through;font-weight:600">R$34,90</span></div>
+        <div data-lightbox="./assets/bloco-anotacoes.png" style="width:100%;aspect-ratio:1;background:#f0f3fb;border-radius:8px 8px 0 0;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in"><img src="./assets/bloco-anotacoes.png" alt="Bloco de Anotações DOT" style="width:95%;height:95%;object-fit:contain;pointer-events:none"></div>
+        <div style="padding:4px 4px 6px;font:600 10px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f;text-align:center">Bloco de Anotações</div>
       </div>
       <div style="position:relative;border-radius:10px;width:26%;flex:0 0 26%;border:1px solid #04142f;padding-top:9px;display:flex;flex-direction:column;overflow:visible;scroll-snap-align:center">
-        <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#fceb2e;color:#04142f;border:1px solid #04142f;border-radius:20px;padding:2px 7px;font:700 11px 'Inter Italic','Space Grotesk',sans-serif;white-space:nowrap">GRÁTIS <span style="text-decoration:line-through;font-weight:600">R$39,90</span></div>
+        <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#fceb2e;color:#04142f;border:1px solid #04142f;border-radius:20px;padding:2px 7px;font:700 11px 'Inter Italic','Space Grotesk',sans-serif;white-space:nowrap">GRÁTIS <span style="text-decoration:line-through;font-weight:600">R$29,90</span></div>
         <div data-lightbox="./assets/mousepad-dot.png" style="width:100%;aspect-ratio:1;background:#f0f3fb;border-radius:8px 8px 0 0;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in"><img src="./assets/mousepad-dot.png" alt="Mousepad DOT" style="width:100%;height:100%;object-fit:contain;pointer-events:none"></div>
         <div style="padding:4px 4px 6px;font:600 10px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f;text-align:center">Mousepad DOT</div>
       </div>
       <div style="position:relative;border-radius:10px;width:26%;flex:0 0 26%;border:1px solid #04142f;padding-top:9px;display:flex;flex-direction:column;overflow:visible;scroll-snap-align:center">
-        <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#fceb2e;color:#04142f;border:1px solid #04142f;border-radius:20px;padding:2px 7px;font:700 11px 'Inter Italic','Space Grotesk',sans-serif;white-space:nowrap">GRÁTIS <span style="text-decoration:line-through;font-weight:600">R$44,70</span></div>
+        <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#fceb2e;color:#04142f;border:1px solid #04142f;border-radius:20px;padding:2px 7px;font:700 11px 'Inter Italic','Space Grotesk',sans-serif;white-space:nowrap">GRÁTIS <span style="text-decoration:line-through;font-weight:600">R$34,90</span></div>
         <div data-lightbox="./assets/apoio-teclado.png" style="width:100%;aspect-ratio:1;background:#f0f3fb;border-radius:8px 8px 0 0;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in"><img src="./assets/apoio-teclado.png" alt="Apoio de Teclado DOT" style="width:100%;height:100%;object-fit:contain;pointer-events:none"></div>
         <div style="padding:4px 4px 6px;font:600 10px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f;text-align:center">Apoio de Teclado</div>
+      </div>
+      <div style="position:relative;border-radius:10px;width:26%;flex:0 0 26%;border:1px solid #04142f;padding-top:9px;display:flex;flex-direction:column;overflow:visible;scroll-snap-align:center">
+        <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#fceb2e;color:#04142f;border:1px solid #04142f;border-radius:20px;padding:2px 7px;font:700 11px 'Inter Italic','Space Grotesk',sans-serif;white-space:nowrap">GRÁTIS <span style="text-decoration:line-through;font-weight:600">R$143,30</span></div>
+        <div data-lightbox="./assets/pouch-melancia.png" style="width:100%;aspect-ratio:1;background:#f0f3fb;border-radius:8px 8px 0 0;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in"><img src="./assets/pouch-melancia.png" alt="1x Pouch do seu sabor" style="width:100%;height:100%;object-fit:contain;pointer-events:none"></div>
+        <div style="padding:4px 4px 6px;font:600 10px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f;text-align:center">1x Pouch do seu sabor</div>
       </div>
       <div style="position:relative;border-radius:10px;width:26%;flex:0 0 26%;border:1px solid #04142f;padding-top:9px;display:flex;flex-direction:column;overflow:visible;scroll-snap-align:center">
         <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#fceb2e;color:#04142f;border:1px solid #04142f;border-radius:20px;padding:2px 7px;font:700 11px 'Inter Italic','Space Grotesk',sans-serif;white-space:nowrap">GRÁTIS <span style="text-decoration:line-through;font-weight:600">R$29,90</span></div>
@@ -111,7 +124,7 @@ a:hover{color:#0f2d72}
       </div>
     </div>
 
-    <div id="bottom-cta" onClick="{{ openSheet }}" style="margin:18px 0 28px;background:#fceb2e;color:#04142f;text-align:center;padding:18px;border-radius:8px;font:700 17px 'Inter Italic','Space Grotesk',sans-serif;cursor:pointer" style-hover="background:#0d2040">3x R$ 108,30 <span style="font:600 12px 'Inter Italic','Space Grotesk',sans-serif">s/ juros</span> <span style="font-size:20px;vertical-align:middle">→</span></div>
+    <div id="bottom-cta" onClick="{{ openSheet }}" style="margin:18px 0 28px;background:#fceb2e;color:#04142f;text-align:center;padding:18px;border-radius:8px;font:700 17px 'Inter Italic','Space Grotesk',sans-serif;cursor:pointer" style-hover="background:#0d2040">3x R$ 143,30 <span style="font:600 12px 'Inter Italic','Space Grotesk',sans-serif">s/ juros</span> <span style="font-size:20px;vertical-align:middle">→</span></div>
 
     <div style="border-top:1px solid rgba(4,20,47,.15)"></div>
     <div style="margin-top:20px;background:#f2f2f2;border-radius:10px;padding:14px;display:flex;align-items:center;gap:12px">
@@ -134,16 +147,17 @@ a:hover{color:#0f2d72}
           <div style="padding:0 14px 16px;font:400 12px/1.6 'Inter Italic','Space Grotesk',sans-serif;color:#fefbe6">
             <div style="font:700 14px 'Inter Italic','Space Grotesk',sans-serif;color:#fceb2e;margin-bottom:8px">Oferta Exclusiva DOT</div>
             <div style="display:flex;flex-direction:column;gap:8px">
-              <div style="display:flex;gap:6px"><span>•</span><span>Você compra <strong>2 Pouches DOT</strong>, escolhendo os sabores que quiser, e recebe:</span></div>
-              <div style="display:flex;gap:6px;padding-left:14px"><span>•</span><span><strong>1 Pouch de Melancia com Limão GRÁTIS</strong></span></div>
-              <div style="display:flex;gap:6px;padding-left:14px"><span>•</span><span><strong>1 Mousepad DOT GRÁTIS</strong></span></div>
+              <div style="display:flex;gap:6px"><span>•</span><span>Você compra <strong>3 Pouches DOT</strong>, escolhendo os sabores que quiser, e recebe:</span></div>
+              <div style="display:flex;gap:6px;padding-left:14px"><span>•</span><span><strong>1 Pouch do seu sabor GRÁTIS</strong></span></div>
+              <div style="display:flex;gap:6px;padding-left:14px"><span>•</span><span><strong>1 Mouse Pad DOT GRÁTIS</strong></span></div>
               <div style="display:flex;gap:6px;padding-left:14px"><span>•</span><span><strong>1 Apoio de Teclado DOT GRÁTIS</strong></span></div>
+              <div style="display:flex;gap:6px;padding-left:14px"><span>•</span><span><strong>1 Bloco de Anotações GRÁTIS</strong></span></div>
               <div style="display:flex;gap:6px;padding-left:14px"><span>•</span><span><strong>Frete GRÁTIS para todo o Brasil</strong></span></div>
-              <div style="display:flex;gap:6px"><span>•</span><span><strong>De R$ 579,97 por apenas R$ 324,98</strong> — economize R$ 254,99</span></div>
-              <div style="display:flex;gap:6px"><span>•</span><span>Isso representa <strong>quase 44% de desconto</strong> no valor total da oferta</span></div>
-              <div style="display:flex;gap:6px"><span>•</span><span>Você ainda pode pagar em <strong>3x de R$ 108,30 sem juros</strong></span></div>
-              <div style="display:flex;gap:6px"><span>•</span><span>Ou seja: <strong>você paga 2 Pouches e leva 3 + Mousepad + Apoio de Teclado + Frete Grátis</strong></span></div>
-              <div style="display:flex;gap:6px"><span>•</span><span>Escolha seus 2 sabores, confirme e finalize — os brindes já estão <strong>garantidos automaticamente</strong></span></div>
+              <div style="display:flex;gap:6px"><span>•</span><span><strong>De R$ 702,80 por apenas R$ 429,90</strong> — economize R$ 272,90</span></div>
+              <div style="display:flex;gap:6px"><span>•</span><span>Isso representa <strong>quase 39% de desconto</strong> no valor total da oferta</span></div>
+              <div style="display:flex;gap:6px"><span>•</span><span>Você ainda pode pagar em <strong>3x de R$ 143,30 sem juros</strong></span></div>
+              <div style="display:flex;gap:6px"><span>•</span><span>Ou seja: <strong>você paga 3 Pouches e leva 4 + Mouse Pad + Apoio de Teclado + Bloco de Anotações + Frete Grátis</strong></span></div>
+              <div style="display:flex;gap:6px"><span>•</span><span>Escolha seus 3 sabores, confirme e finalize — os brindes já estão <strong>garantidos automaticamente</strong></span></div>
               <div style="display:flex;gap:6px"><span>•</span><span>Oferta por tempo limitado. Aproveite enquanto estiver disponível</span></div>
             </div>
           </div>
@@ -162,97 +176,123 @@ a:hover{color:#0f2d72}
 
   <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ closeSheet }}" style="position:fixed;inset:0;background:rgba(4,20,47,.5)"></div>
-    <div style="position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;max-height:80vh;background:#ffffff;border-top:2px solid #04142f;border-radius:18px 18px 0 0;display:flex;flex-direction:column;padding:10px 16px 16px;box-shadow:0 -6px 0 rgba(4,20,47,.1);overflow-y:auto">
-      <div onClick="{{ closeSheet }}" style="width:40px;height:4px;background:rgba(4,20,47,.25);border-radius:2px;margin:0 auto 10px;cursor:pointer"></div>
-      <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
-        <div onClick="{{ goBack }}" style="align-self:flex-start;font:500 12px 'Space Grotesk',sans-serif;color:rgba(4,20,47,.4);cursor:pointer;padding:2px 0;margin-bottom:4px" style-hover="color:#04142f">← Voltar</div>
-      </sc-if>
-      <div style="font:700 22px 'Space Grotesk',sans-serif;color:#04142f;text-align:center;line-height:1.2">{{ sheetTitle }}</div>
-      <div style="margin-top:8px;margin-bottom:12px;display:flex;gap:6px">
+    <div style="position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;max-height:85vh;background:#ffffff;border-top:2px solid #04142f;border-radius:18px 18px 0 0;display:flex;flex-direction:column;padding:10px 16px 16px;box-shadow:0 -6px 0 rgba(4,20,47,.1);overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain">
+      <div onClick="{{ closeSheet }}" style="width:40px;height:4px;background:rgba(4,20,47,.25);border-radius:2px;margin:0 auto 12px;cursor:pointer"></div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <sc-if value="{{ showBackBtn }}" hint-placeholder-val="{{ false }}">
+          <div data-back-btn onClick="{{ backAction }}" style="flex:none;cursor:pointer;color:rgba(4,20,47,.4);font:500 22px 'Space Grotesk',sans-serif;line-height:1;padding:0 4px" style-hover="color:#04142f">←</div>
+        </sc-if>
+        <div style="{{ sheetTitleStyle }}">{{ sheetTitle }}</div>
+      </div>
+      <div style="margin-top:8px;margin-bottom:14px;display:flex;gap:6px">
         <div style="{{ sheetSeg1 }}"></div>
         <div style="{{ sheetSeg2 }}"></div>
         <div style="{{ sheetSeg3 }}"></div>
       </div>
 
+      <div data-next-btn onClick="{{ goForward }}" style="display:none"></div>
+
       <sc-if value="{{ resgatado }}" hint-placeholder-val="{{ false }}">
         <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px">
           <div style="text-align:center">
-            <div style="font:600 12px 'Inter Italic','Space Grotesk',sans-serif;color:#e11d2e;text-decoration:line-through;position:relative;top:-6px">R$ 579,97</div>
-            <div style="font:700 30px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">3x de R$ 108,30 <span style="font-size:14px">s/ juros</span></div>
-            <div style="font:700 13px 'Inter Italic','Space Grotesk',sans-serif;color:#0f2d72;margin-top:4px">Você economiza R$ 254,99</div>
+            <div style="font:600 12px 'Inter Italic','Space Grotesk',sans-serif;color:#e11d2e;text-decoration:line-through;position:relative;top:-6px">R$ 702,80</div>
+            <div style="font:700 30px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">3x de R$ 143,30 <span style="font-size:14px">s/ juros</span></div>
+            <div style="font:700 13px 'Inter Italic','Space Grotesk',sans-serif;color:#0f2d72;margin-top:4px">Você economiza R$ 272,90</div>
           </div>
           <div onClick="{{ addToCart }}" style="background:#fceb2e;color:#04142f;text-align:center;padding:14px;border-radius:8px;font:700 14px 'Inter Italic','Space Grotesk',sans-serif;cursor:pointer" style-hover="background:#0d2040">FINALIZAR COMPRA <span style="font-size:20px;vertical-align:middle">→</span></div>
         </div>
       </sc-if>
 
-      <sc-if value="{{ !resgatado }}" hint-placeholder-val="{{ true }}">
+      <sc-if value="{{ notResgatado }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;overflow:hidden;margin:0 -16px">
 
-        <div style="margin-top:0;overflow:hidden;border-radius:14px;flex-shrink:0">
-          <div style="display:flex;width:300%;transition:transform .5s cubic-bezier(.22,1,.36,1);transform:translateX({{ carouselOffset }}%)">
-            <div style="width:33.3333%;flex:none;box-sizing:border-box;padding:6px 8px 0 1px;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start">
-              <sc-for list="{{ flavorList1 }}" as="fl" hint-placeholder-count="4">
-                <sc-if value="{{ fl.selected }}" hint-placeholder-val="{{ false }}">
-                  <div onClick="{{ fl.onClick }}" style="position:relative;border-radius:12px;border:2px solid #1f9d55;background:#fff;padding:6px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer">
-                    <div style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:#1f9d55;border:2px solid #fff;display:flex;align-items:center;justify-content:center"><div style="width:6px;height:4px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg) translate(0.5px,-0.5px)"></div></div>
-                    <div style="width:100%;aspect-ratio:1;background:#f0f3fb;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="{{ fl.img }}" alt="{{ fl.name }}" style="width:100%;height:100%;object-fit:cover"></div>
-                    <div style="font:700 12px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">{{ fl.name }}</div>
-                  </div>
-                </sc-if>
-                <sc-if value="{{ fl.unselected }}" hint-placeholder-val="{{ true }}">
-                  <div onClick="{{ fl.onClick }}" style="border-radius:12px;border:1px solid rgba(4,20,47,.15);background:#fff;padding:6px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer" style-hover="border-color:#04142f">
-                    <div style="width:100%;aspect-ratio:1;background:#f0f3fb;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="{{ fl.img }}" alt="{{ fl.name }}" style="width:100%;height:100%;object-fit:cover"></div>
-                    <div style="font:700 12px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">{{ fl.name }}</div>
-                  </div>
-                </sc-if>
-              </sc-for>
-            </div>
-            <div style="width:33.3333%;flex:none;box-sizing:border-box;padding:6px 8px 0 1px;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start">
-              <sc-for list="{{ flavorList2 }}" as="fl" hint-placeholder-count="4">
-                <sc-if value="{{ fl.selected }}" hint-placeholder-val="{{ false }}">
-                  <div onClick="{{ fl.onClick }}" style="position:relative;border-radius:12px;border:2px solid #1f9d55;background:#fff;padding:6px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer">
-                    <div style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:#1f9d55;border:2px solid #fff;display:flex;align-items:center;justify-content:center"><div style="width:6px;height:4px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg) translate(0.5px,-0.5px)"></div></div>
-                    <div style="width:100%;aspect-ratio:1;background:#f0f3fb;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="{{ fl.img }}" alt="{{ fl.name }}" style="width:100%;height:100%;object-fit:cover"></div>
-                    <div style="font:700 12px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">{{ fl.name }}</div>
-                  </div>
-                </sc-if>
-                <sc-if value="{{ fl.unselected }}" hint-placeholder-val="{{ true }}">
-                  <div onClick="{{ fl.onClick }}" style="border-radius:12px;border:1px solid rgba(4,20,47,.15);background:#fff;padding:6px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer" style-hover="border-color:#04142f">
-                    <div style="width:100%;aspect-ratio:1;background:#f0f3fb;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="{{ fl.img }}" alt="{{ fl.name }}" style="width:100%;height:100%;object-fit:cover"></div>
-                    <div style="font:700 12px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">{{ fl.name }}</div>
-                  </div>
-                </sc-if>
-              </sc-for>
-            </div>
-            <div style="width:33.3333%;flex:none;box-sizing:border-box;padding:8px 8px 0 1px">
-              <div style="border-radius:14px;background:linear-gradient(rgba(4,20,47,.6),rgba(4,20,47,.6)),url('./assets/textura-navy.png') center/cover;padding:10px 5px;display:flex;flex-direction:column;gap:8px">
-                <div style="font:600 10px 'Inter Italic','Space Grotesk',sans-serif;color:rgba(252,235,46,.8);padding:0 1px">DESBLOQUEADOS</div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-                  <sc-for list="{{ freebieList }}" as="fb" hint-placeholder-count="4">
-                    <div style="position:relative;border-radius:12px;border:2px solid #fceb2e;background:#fff;padding:6px;display:flex;flex-direction:column;align-items:center;gap:5px">
-                      <div style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:#fceb2e;border:2px solid #04142f;display:flex;align-items:center;justify-content:center">
-                        <div style="width:6px;height:4px;border-left:1.5px solid #04142f;border-bottom:1.5px solid #04142f;transform:rotate(-45deg) translate(0.5px,-0.5px)"></div>
+            <!-- stage 1: escolher sabores pagos -->
+            <div style="{{ stage1PanelStyle }}">
+              <div style="text-align:right;font:700 12px 'Space Grotesk',sans-serif;color:#04142f">{{ flavorCountLabel }}</div>
+              <div style="display:flex;flex-direction:column;gap:8px;background:#f0f3fb;border-radius:12px;padding:10px;flex:1">
+                <sc-for list="{{ flavorRows }}" as="fr" hint-placeholder-count="4">
+                  <sc-if value="{{ fr.hasQty }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:relative;background:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:12px;flex:1">
+                      <sc-if value="{{ fr.hasBadge }}" hint-placeholder-val="{{ false }}">
+                        <div style="position:absolute;top:0;right:10px;background:#fceb2e;color:#04142f;font:700 8px 'Space Grotesk',sans-serif;padding:2px 7px;border-radius:0 0 6px 6px;letter-spacing:.3px;text-transform:uppercase">{{ fr.badge }}</div>
+                      </sc-if>
+                      <div onClick="{{ fr.onIncrease }}" style="width:64px;height:64px;flex:none;border-radius:8px;overflow:hidden;background:#f0f3fb;cursor:pointer"><img src="{{ fr.img }}" alt="{{ fr.name }}" style="width:100%;height:100%;object-fit:cover;pointer-events:none"></div>
+                      <div onClick="{{ fr.onIncrease }}" style="flex:1;font:700 14px 'Space Grotesk',sans-serif;color:#04142f;cursor:pointer">{{ fr.name }}</div>
+                      <div style="display:flex;align-items:center;background:#04142f;border-radius:8px;overflow:hidden;flex:none">
+                        <div onClick="{{ fr.onDecrease }}" style="padding:8px 13px;color:#fff;font:700 18px 'Space Grotesk',sans-serif;cursor:pointer;user-select:none;line-height:1">−</div>
+                        <div style="padding:0 4px;color:#fff;font:700 14px 'Space Grotesk',sans-serif;min-width:22px;text-align:center">{{ fr.qty }}</div>
+                        <div onClick="{{ fr.onIncrease }}" style="{{ fr.plusStyle }}">+</div>
                       </div>
-                      <div style="width:100%;aspect-ratio:1;background:#f0f3fb;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="{{ fb.img }}" alt="{{ fb.label }}" style="{{ fb.imgStyle }}"></div>
-                      <div style="font:700 10.5px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f;text-align:center;line-height:1.15">{{ fb.label }}</div>
                     </div>
-                  </sc-for>
-                </div>
+                  </sc-if>
+                  <sc-if value="{{ fr.noQty }}" hint-placeholder-val="{{ true }}">
+                    <div onClick="{{ fr.onIncrease }}" style="position:relative;background:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:12px;flex:1;cursor:pointer">
+                      <sc-if value="{{ fr.hasBadge }}" hint-placeholder-val="{{ false }}">
+                        <div style="position:absolute;top:0;right:10px;background:#fceb2e;color:#04142f;font:700 8px 'Space Grotesk',sans-serif;padding:2px 7px;border-radius:0 0 6px 6px;letter-spacing:.3px;text-transform:uppercase">{{ fr.badge }}</div>
+                      </sc-if>
+                      <div style="width:64px;height:64px;flex:none;border-radius:8px;overflow:hidden;background:#f0f3fb"><img src="{{ fr.img }}" alt="{{ fr.name }}" style="width:100%;height:100%;object-fit:cover"></div>
+                      <div style="flex:1;font:700 14px 'Space Grotesk',sans-serif;color:#04142f">{{ fr.name }}</div>
+                      <div style="{{ fr.addBtnStyle }}">ADICIONAR +</div>
+                    </div>
+                  </sc-if>
+                </sc-for>
               </div>
+              <sc-if value="{{ showFinalizeBtn }}" hint-placeholder-val="{{ false }}">
+                <div onClick="{{ addToCart }}" style="margin-top:auto;background:#fceb2e;color:#04142f;text-align:center;padding:17px;border-radius:10px;font:700 16px 'Inter Italic','Space Grotesk',sans-serif;cursor:pointer" style-hover="background:#0d2040">FINALIZAR COMPRA <span style="font-size:20px;vertical-align:middle">→</span></div>
+              </sc-if>
+              <sc-if value="{{ showFreebieCard }}" hint-placeholder-val="{{ true }}">
+                <div style="margin-top:auto;border:2px solid #04142f;border-radius:10px;background:#f0f3fb;padding:14px;display:flex;align-items:center;gap:12px">
+                  <div style="flex:1;font:600 12px/1.4 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">Você já desbloqueou: 4º Pouch, Mouse Pad, Apoio de Teclado, Bloco de Anotações e Frete Grátis</div>
+                  <div style="width:60px;height:60px;flex:none;background:#dbe3f2;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img key="{{ freebieImgKey }}" src="{{ currentPrizeImg }}" alt="Prêmios DOT" style="width:100%;height:100%;object-fit:contain;animation:prizePop .6s cubic-bezier(.22,1,.36,1)"></div>
+                </div>
+              </sc-if>
             </div>
-          </div>
+
+            <!-- stage 2: escolher sabor grátis -->
+            <div style="{{ stage2PanelStyle }}">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:10px;flex:1">
+                <sc-for list="{{ freeFlavorRows }}" as="fr" hint-placeholder-count="4">
+                  <sc-if value="{{ fr.selected }}" hint-placeholder-val="{{ false }}">
+                    <div onClick="{{ fr.onSelect }}" style="position:relative;border-radius:12px;border:2px solid #fceb2e;background:#fff;padding:6px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer">
+                      <div style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:#fceb2e;border:2px solid #04142f;display:flex;align-items:center;justify-content:center"><div style="width:6px;height:4px;border-left:1.5px solid #04142f;border-bottom:1.5px solid #04142f;transform:rotate(-45deg) translate(0.5px,-0.5px)"></div></div>
+                      <div style="width:100%;height:160px;background:#f0f3fb;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="{{ fr.img }}" alt="{{ fr.name }}" style="width:100%;height:100%;object-fit:cover"></div>
+                      <div style="font:700 12px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f;text-align:center">{{ fr.name }}</div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ fr.unselected }}" hint-placeholder-val="{{ true }}">
+                    <div onClick="{{ fr.onSelect }}" style="border-radius:12px;border:1px solid rgba(4,20,47,.15);background:#fff;padding:6px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer" style-hover="border-color:#fceb2e">
+                      <div style="width:100%;height:160px;background:#f0f3fb;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="{{ fr.img }}" alt="{{ fr.name }}" style="width:100%;height:100%;object-fit:cover"></div>
+                      <div style="font:700 12px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f;text-align:center">{{ fr.name }}</div>
+                    </div>
+                  </sc-if>
+                </sc-for>
+              </div>
+              <sc-if value="{{ showFinalizeBtn }}" hint-placeholder-val="{{ false }}">
+                <div onClick="{{ addToCart }}" style="margin-top:auto;background:#fceb2e;color:#04142f;text-align:center;padding:17px;border-radius:10px;font:700 16px 'Inter Italic','Space Grotesk',sans-serif;cursor:pointer" style-hover="background:#0d2040">FINALIZAR COMPRA <span style="font-size:20px;vertical-align:middle">→</span></div>
+              </sc-if>
+              <sc-if value="{{ showFreebieCard }}" hint-placeholder-val="{{ true }}">
+                <div style="margin-top:auto;border:2px solid #04142f;border-radius:10px;background:#f0f3fb;padding:14px;display:flex;align-items:center;gap:12px">
+                  <div style="flex:1;font:600 12px/1.4 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">Você já desbloqueou: 4º Pouch, Mouse Pad, Apoio de Teclado, Bloco de Anotações e Frete Grátis</div>
+                  <div style="width:60px;height:60px;flex:none;background:#dbe3f2;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img key="{{ freebieImgKey }}" src="{{ currentPrizeImg }}" alt="Prêmios DOT" style="width:100%;height:100%;object-fit:contain;animation:prizePop .6s cubic-bezier(.22,1,.36,1)"></div>
+                </div>
+              </sc-if>
+            </div>
+
+            <!-- stage 3: brindes desbloqueados + finalizar -->
+            <div style="{{ stage3PanelStyle }}">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:10px">
+                <sc-for list="{{ freebieList }}" as="fb" hint-placeholder-count="4">
+                  <div style="position:relative;border-radius:12px;border:2px solid #fceb2e;background:#fff;padding:6px;display:flex;flex-direction:column;align-items:center;gap:5px">
+                    <div style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:#fceb2e;border:2px solid #04142f;display:flex;align-items:center;justify-content:center"><div style="width:6px;height:4px;border-left:1.5px solid #04142f;border-bottom:1.5px solid #04142f;transform:rotate(-45deg) translate(0.5px,-0.5px)"></div></div>
+                    <div style="width:100%;height:160px;background:#f0f3fb;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="{{ fb.img }}" alt="{{ fb.label }}" style="{{ fb.imgStyle }}"></div>
+                    <div style="font:700 10.5px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f;text-align:center;line-height:1.15">{{ fb.label }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div onClick="{{ resgatar }}" style="margin-top:auto;background:#fceb2e;color:#04142f;text-align:center;padding:17px;border-radius:10px;font:700 16px 'Inter Italic','Space Grotesk',sans-serif;cursor:pointer" style-hover="background:#0d2040">FINALIZAR COMPRA <span style="font-size:20px;vertical-align:middle">→</span></div>
+            </div>
+
         </div>
-
-        <div style="min-height:0"></div>
-
-        <sc-if value="{{ showUnlockBar }}" hint-placeholder-val="{{ true }}">
-          <div style="margin-top:0;border:2px solid #04142f;border-radius:10px;background:#f0f3fb;padding:14px;display:flex;align-items:center;gap:12px">
-            <div style="flex:1;font:600 12px/1.4 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">Você já desbloqueou: 3º Pouch, Mousepad, Apoio de Teclado e Frete Grátis</div>
-            <div style="width:60px;height:60px;flex:none;background:#dbe3f2;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img key="{{ freebieImgKey }}" src="{{ currentPrizeImg }}" alt="Prêmios DOT" style="width:100%;height:100%;object-fit:contain;animation:prizePop .6s cubic-bezier(.22,1,.36,1)"></div>
-          </div>
-        </sc-if>
-        <sc-if value="{{ showResgatar }}" hint-placeholder-val="{{ false }}">
-          <div onClick="{{ resgatar }}" style="margin-top:10px;background:#fceb2e;color:#04142f;text-align:center;padding:17px;border-radius:10px;font:700 16px 'Inter Italic','Space Grotesk',sans-serif;cursor:pointer" style-hover="background:#0d2040">FINALIZAR COMPRA <span style="font-size:20px;vertical-align:middle">→</span></div>
-        </sc-if>
       </sc-if>
     </div>
   </sc-if>
@@ -262,10 +302,10 @@ a:hover{color:#0f2d72}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 const FLAVORS = [
-  { name: 'Menta', img: './assets/sabor-menta.jpg' },
-  { name: 'Frutas Vermelhas', img: './assets/sabor-frutas-vermelhas.jpg' },
-  { name: 'Melancia com Limão', img: './assets/sabor-melancia-novo.png' },
-  { name: 'Citrus', img: './assets/sabor-citrus.jpg' },
+  { name: 'Menta', key: 'menta', img: './assets/sabor-menta.jpg', badge: 'O MAIS VENDIDO' },
+  { name: 'Frutas Vermelhas', key: 'frutas', img: './assets/sabor-frutas-vermelhas.jpg', badge: '' },
+  { name: 'Citrus', key: 'citrus', img: './assets/sabor-citrus.jpg', badge: '' },
+  { name: 'Melancia com Limão', key: 'melancia', img: './assets/sabor-melancia-novo.png', badge: 'EDIÇÃO LIMITADA' },
 ];
 
 const FAQ_DOT = [
@@ -282,8 +322,19 @@ const FAQ_DOT = [
 
 
 class Component extends DCLogic {
-  state = { sheetOpen: false, pick1: null, pick2: null, editingStage: null, resgatado: false, addedToCart: false,
-    freebies: { pouch3: true, mousepad: true, keyboard: true, shipping: true }, openFaq: {}, tableOpen: false, promoOpen: false, carouselTick: 0, stickyVisible: true };
+  state = {
+    sheetOpen: false,
+    quantities: { menta: 0, frutas: 0, citrus: 0, melancia: 0 },
+    pickFree: null,
+    confirmedPaid: false,
+    resgatado: false,
+    addedToCart: false,
+    openFaq: {},
+    promoOpen: false,
+    carouselTick: 0,
+    stickyVisible: true,
+    hasReachedStage3: false,
+  };
 
   componentDidMount() {
     this._prizeInterval = setInterval(() => this.setState(s => ({ carouselTick: s.carouselTick + 1 })), 2600);
@@ -298,11 +349,39 @@ class Component extends DCLogic {
     if (this._observer) this._observer.disconnect();
   }
 
-  openSheet = () => { document.body.style.overflow = 'hidden'; this.setState({ sheetOpen: true }); };
-  closeSheet = () => { document.body.style.overflow = ''; this.setState({ sheetOpen: false }); };
-  reopenStage1 = () => this.setState({ editingStage: 1, resgatado: false });
-  reopenStage2 = () => this.setState({ editingStage: 2, resgatado: false });
-  reopenStage3 = () => this.setState({ editingStage: 3, resgatado: false });
+  openSheet = () => {
+    this._bodyScrollY = window.scrollY;
+    document.body.style.cssText = `position:fixed;top:-${this._bodyScrollY}px;width:100%;overflow:hidden`;
+    this.setState({ sheetOpen: true });
+  };
+  closeSheet = () => {
+    document.body.style.cssText = '';
+    window.scrollTo(0, this._bodyScrollY || 0);
+    this.setState({ sheetOpen: false });
+  };
+  increaseQty = (key) => this.setState(s => {
+    const total = Object.values(s.quantities).reduce((a, b) => a + b, 0);
+    if (total >= 3) return {};
+    const newQty = { ...s.quantities, [key]: s.quantities[key] + 1 };
+    const newTotal = Object.values(newQty).reduce((a, b) => a + b, 0);
+    return { quantities: newQty, confirmedPaid: newTotal === 3 };
+  });
+  decreaseQty = (key) => this.setState(s => ({
+    quantities: { ...s.quantities, [key]: Math.max(0, s.quantities[key] - 1) },
+    confirmedPaid: false,
+  }));
+  backToFlavors = () => this.setState({ confirmedPaid: false });
+  backToFreeStep = () => this.setState(s => ({ lastPickFree: s.pickFree, pickFree: null }));
+  goForward = () => {
+    const { quantities, confirmedPaid, pickFree, hasReachedStage3, lastPickFree } = this.state;
+    const total = Object.values(quantities).reduce((a, b) => a + b, 0);
+    if (!confirmedPaid && total === 3) { this.setState({ confirmedPaid: true }); return; }
+    if (confirmedPaid && pickFree === null && hasReachedStage3 && lastPickFree) {
+      this.setState({ pickFree: lastPickFree }); return;
+    }
+    if (confirmedPaid && pickFree !== null) { this.addToCart(); }
+  };
+  selectFree = (name) => this.setState({ pickFree: name, hasReachedStage3: true });
   resgatar = () => {
     document.body.style.overflow = '';
     try { window.top.location.href = 'https://minhadot.com'; } catch(e) { window.location.href = 'https://minhadot.com'; }
@@ -311,104 +390,107 @@ class Component extends DCLogic {
     document.body.style.overflow = '';
     try { window.top.location.href = 'https://minhadot.com'; } catch(e) { window.location.href = 'https://minhadot.com'; }
   };
-  toggleFreebie = (key) => this.setState(s => ({ freebies: { ...s.freebies, [key]: !s.freebies[key] } }));
   toggleFaq = (id) => this.setState(s => ({ openFaq: { ...s.openFaq, [id]: !s.openFaq[id] } }));
-  toggleTable = () => this.setState(s => ({ tableOpen: !s.tableOpen }));
   togglePromo = () => this.setState(s => ({ promoOpen: !s.promoOpen }));
 
   renderVals() {
-    const { sheetOpen, pick1, pick2, editingStage, resgatado, addedToCart, freebies, openFaq, tableOpen, promoOpen, carouselTick, stickyVisible } = this.state;
-    const naturalStage = pick1 == null ? 1 : pick2 == null ? 2 : 3;
-    const stage = editingStage || naturalStage;
-    const pick1Img = (FLAVORS.find(f => f.name === pick1) || {}).img;
-    const pick2Img = (FLAVORS.find(f => f.name === pick2) || {}).img;
-    const carouselOffset = -(stage - 1) * 100 / 3;
-    const tabStyle = (open, answered) => {
-      const base = "border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:6px;cursor:pointer;white-space:nowrap;font:700 12px 'Inter Italic','Space Grotesk',sans-serif;flex:none";
-      if (open) return base + ";border:1.5px solid #04142f;background:#fff;color:#04142f";
-      if (answered) return base + ";border:1.5px solid #1f9d55;background:#eafaf0;color:#1f9d55";
-      return base + ";border:1px solid rgba(4,20,47,.25);background:#fff;color:rgba(4,20,47,.4)";
-    };
-    const tab1Style = tabStyle(stage === 1, stage !== 1 && pick1 != null);
-    const tab2Style = tabStyle(stage === 2, stage !== 2 && pick2 != null);
-    const tab3Style = tabStyle(stage === 3, stage !== 3 && pick1 != null && pick2 != null);
+    const { sheetOpen, quantities, pickFree, confirmedPaid, resgatado, addedToCart, openFaq, promoOpen, carouselTick, stickyVisible } = this.state;
+    const totalQty = Object.values(quantities).reduce((a, b) => a + b, 0);
+    const naturalStage = !confirmedPaid ? 1 : pickFree == null ? 2 : 3;
 
-    const flavorList1 = FLAVORS.map(f => {
-      const selected = pick1 === f.name;
-      return { name: f.name, img: f.img, selected, unselected: !selected, onClick: () => this.setState({ pick1: f.name, editingStage: null }) };
+    const flavorRows = FLAVORS.map(f => {
+      const qty = quantities[f.key];
+      const canInc = totalQty < 3;
+      return {
+        name: f.name,
+        img: f.img,
+        badge: f.badge,
+        hasBadge: f.badge !== '',
+        qty,
+        hasQty: qty > 0,
+        noQty: qty === 0,
+        onIncrease: () => this.increaseQty(f.key),
+        onDecrease: () => this.decreaseQty(f.key),
+        addBtnStyle: `background:${canInc ? '#04142f' : 'rgba(4,20,47,.2)'};color:#fff;border-radius:8px;padding:8px 14px;font:700 11px 'Space Grotesk',sans-serif;white-space:nowrap;flex:none;${canInc ? 'cursor:pointer' : 'cursor:not-allowed'}`,
+        plusStyle: `padding:8px 13px;color:${canInc ? '#fff' : 'rgba(255,255,255,.3)'};font:700 18px 'Space Grotesk',sans-serif;cursor:pointer;user-select:none;line-height:1`,
+      };
     });
-    const flavorList2 = FLAVORS.map(f => {
-      const selected = pick2 === f.name;
-      return { name: f.name, img: f.img, selected, unselected: !selected, onClick: () => this.setState({ pick2: f.name, editingStage: null }) };
-    });
+
+    const effectivePick = pickFree || this.state.lastPickFree || null;
+    const freeFlavorRows = FLAVORS.map(f => ({
+      name: f.name,
+      img: f.img,
+      badge: f.badge,
+      hasBadge: f.badge !== '',
+      selected: effectivePick === f.name,
+      unselected: effectivePick !== f.name,
+      onSelect: () => this.selectFree(f.name),
+      rowStyle: `position:relative;background:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:12px;flex:1;cursor:pointer;border:1.5px solid ${effectivePick === f.name ? '#1f9d55' : 'transparent'}`,
+    }));
 
     const FREEBIE_DEFS = [
-      { key: 'pouch3', label: 'Pouch Melancia com Limão', img: './assets/pouch-melancia.png', imgStyle: 'width:100%;height:100%;object-fit:contain' },
-      { key: 'mousepad', label: 'Mousepad DOT', img: './assets/mousepad-dot.png', imgStyle: 'width:100%;height:100%;object-fit:contain' },
-      { key: 'keyboard', label: 'Apoio de Teclado', img: './assets/apoio-teclado.png', imgStyle: 'width:100%;height:100%;object-fit:contain' },
-      { key: 'shipping', label: 'Frete Grátis', img: './assets/frete-gratis.png', imgStyle: 'width:150%;height:150%;object-fit:contain;transform:rotate(345deg)' },
+      { label: 'Mouse Pad DOT', img: './assets/mousepad-dot.png', imgStyle: 'width:100%;height:100%;object-fit:contain' },
+      { label: 'Apoio de Teclado', img: './assets/apoio-teclado.png', imgStyle: 'width:100%;height:100%;object-fit:contain' },
+      { label: 'Bloco de Anotações', img: './assets/bloco-anotacoes.png', imgStyle: 'width:95%;height:95%;object-fit:contain' },
+      { label: 'Frete Grátis', img: './assets/frete-gratis.png', imgStyle: 'width:150%;height:150%;object-fit:contain;transform:rotate(345deg)' },
     ];
-    const freebieList = FREEBIE_DEFS.map(d => {
-      const selected = !!freebies[d.key];
-      return { key: d.key, label: d.label, img: d.img, imgStyle: d.imgStyle, selected, unselected: !selected, onClick: () => this.toggleFreebie(d.key) };
-    });
-    const freebiesSelectedCount = freebieList.filter(f => f.selected).length;
-    const currentPrizeIdx = carouselTick % FREEBIE_DEFS.length;
-    const currentPrizeImg = FREEBIE_DEFS[currentPrizeIdx].img;
+    const freebieList = FREEBIE_DEFS.map(d => ({ label: d.label, img: d.img, imgStyle: d.imgStyle }));
+
+    const PRIZE_IMGS = [
+      './assets/pouch-melancia.png',
+      './assets/mousepad-dot.png',
+      './assets/apoio-teclado.png',
+      './assets/bloco-anotacoes.png',
+      './assets/frete-gratis.png',
+    ];
+    const currentPrizeImg = PRIZE_IMGS[carouselTick % PRIZE_IMGS.length];
 
     return {
+      sheetOpen,
       currentPrizeImg,
       freebieImgKey: carouselTick,
-      sheetOpen,
-      headerBtnLabel: addedToCart ? '1 item no carrinho' : 'CLIQUE AQUI <span style="font-size:20px;vertical-align:middle">→</span>',
+      flavorCountLabel: `${totalQty}/3 sabores`,
       openSheet: this.openSheet,
       closeSheet: this.closeSheet,
-      reopenStage1: this.reopenStage1,
-      reopenStage2: this.reopenStage2,
-      reopenStage3: this.reopenStage3,
       resgatar: this.resgatar,
       addToCart: this.addToCart,
-      pick1, pick2, pick1Img, pick2Img, carouselOffset, tab1Style, tab2Style, tab3Style,
       resgatado,
-      sheetTitle: resgatado ? 'Seu combo está pronto!' : stage === 1 ? 'Escolha seu 1º sabor' : stage === 2 ? 'Escolha seu 2º sabor' : 'Você ganhou os brindes!',
-      showBack: stage > 1 && !resgatado,
-      goBack: stage === 2 ? this.reopenStage1 : this.reopenStage2,
+      notResgatado: !resgatado,
+      stage1: naturalStage === 1 && !resgatado,
+      stage2: naturalStage === 2 && !resgatado,
+      stage3: naturalStage === 3 && !resgatado,
+      stage1PanelStyle: `grid-area:1/1;min-width:0;box-sizing:border-box;padding:0 16px;display:flex;flex-direction:column;gap:10px;transform:translateX(${(1-naturalStage)*100}%);transition:transform .38s cubic-bezier(.25,.46,.45,.94)${naturalStage!==1?';pointer-events:none':''}`,
+      stage2PanelStyle: `grid-area:1/1;min-width:0;box-sizing:border-box;padding:0 16px;display:flex;flex-direction:column;gap:10px;transform:translateX(${(2-naturalStage)*100}%);transition:transform .38s cubic-bezier(.25,.46,.45,.94)${naturalStage!==2?';pointer-events:none':''}`,
+      stage3PanelStyle: `grid-area:1/1;min-width:0;box-sizing:border-box;padding:0 16px;display:flex;flex-direction:column;gap:12px;transform:translateX(${(3-naturalStage)*100}%);transition:transform .38s cubic-bezier(.25,.46,.45,.94)${naturalStage!==3?';pointer-events:none':''}`,
+      sheetTitle: resgatado ? 'Seu combo está pronto!' : naturalStage === 1 ? 'Escolha seus sabores' : naturalStage === 2 ? 'Escolha seu sabor grátis' : 'Você ganhou os brindes!',
+      sheetTitleStyle: `font:700 22px 'Space Grotesk',sans-serif;color:#04142f;line-height:1.2;flex:1${naturalStage === 1 || resgatado ? ';text-align:center' : ''}`,
+      goForward: this.goForward,
+      showBackBtn: (naturalStage === 2 || naturalStage === 3) && !resgatado,
+      showFinalizeBtn: this.state.hasReachedStage3,
+      showFreebieCard: !this.state.hasReachedStage3,
+      backAction: naturalStage === 2 ? this.backToFlavors : this.backToFreeStep,
       sheetSeg1: 'flex:1;height:5px;border-radius:3px;background:#1f9d55',
-      sheetSeg2: `flex:1;height:5px;border-radius:3px;background:${stage >= 2 ? '#1f9d55' : 'rgba(4,20,47,.12)'}`,
-      sheetSeg3: `flex:1;height:5px;border-radius:3px;background:${stage >= 3 ? '#1f9d55' : 'rgba(4,20,47,.12)'}`,
-      stage1Open: stage === 1,
-      stage1Answered: stage !== 1 && pick1 != null,
-      stage1NotAnswered: !(stage !== 1 && pick1 != null),
-      stage2NotAnswered: !(stage !== 2 && pick2 != null),
-      stage2Locked: stage !== 2 && pick2 == null,
-      stage2Open: stage === 2,
-      stage2Answered: stage !== 2 && pick2 != null,
-      stage3Locked: stage !== 3 && !(pick1 != null && pick2 != null),
-      stage3Answered: stage !== 3 && pick1 != null && pick2 != null,
-      stage3Open: stage === 3,
-      showUnlockBar: naturalStage < 3,
-      showResgatar: naturalStage === 3,
+      sheetSeg2: `flex:1;height:5px;border-radius:3px;background:${naturalStage >= 2 ? '#1f9d55' : 'rgba(4,20,47,.12)'}`,
+      sheetSeg3: `flex:1;height:5px;border-radius:3px;background:${naturalStage >= 3 ? '#1f9d55' : 'rgba(4,20,47,.12)'}`,
+      flavorRows,
+      freeFlavorRows,
+      freebieList,
+      backToFlavors: this.backToFlavors,
+      backToFreeStep: this.backToFreeStep,
       marqueeItems: [
         { text: 'OFERTA TERMINA EM 14 DIAS' },
         { text: 'APENAS 100 UNIDADES DISPONÍVEIS' },
-        { text: 'COMPRE 2 LEVE 3' },
+        { text: 'COMPRE 3 LEVE 4' },
         { text: 'FRETE GRÁTIS' },
         { text: 'PROMOÇÃO POR TEMPO LIMITADO' },
       ].concat(...Array(3).fill([
         { text: 'OFERTA TERMINA EM 14 DIAS' },
         { text: 'APENAS 100 UNIDADES DISPONÍVEIS' },
-        { text: 'COMPRE 2 LEVE 3' },
+        { text: 'COMPRE 3 LEVE 4' },
         { text: 'FRETE GRÁTIS' },
         { text: 'PROMOÇÃO POR TEMPO LIMITADO' },
       ])),
-      flavorList1,
-      flavorList2,
-      freebieList,
-      freebiesSelectedCount,
       faqDot: FAQ_DOT.map((d, i) => { const id = 'dot-' + i; const open = !!openFaq[id]; return { question: d.q, answer: d.a, open, closed: !open, onClick: () => this.toggleFaq(id) }; }),
-      toggleTable: this.toggleTable,
-      tableOpen,
-      tableClosed: !tableOpen,
       togglePromo: this.togglePromo,
       promoOpen,
       promoClosed: !promoOpen,
@@ -432,6 +514,35 @@ document.addEventListener('click', function(e) {
     document.getElementById('img-lightbox').style.display = 'none';
   }
 });
+
+(function() {
+  var startX = 0, startY = 0, swiping = false;
+  document.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    swiping = false;
+  }, { passive: true });
+  document.addEventListener('touchmove', function(e) {
+    if (!document.querySelector('[data-next-btn]')) return;
+    var dx = Math.abs(e.touches[0].clientX - startX);
+    var dy = Math.abs(e.touches[0].clientY - startY);
+    if (dx > dy && dx > 8) { swiping = true; e.preventDefault(); }
+  }, { passive: false });
+  document.addEventListener('touchend', function(e) {
+    if (!swiping) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    var dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dy) >= Math.abs(dx) * 0.75 || Math.abs(dx) < 60) return;
+    e.preventDefault();
+    if (dx > 0) {
+      var btn = document.querySelector('[data-back-btn]');
+      if (btn) btn.click();
+    } else {
+      var btn = document.querySelector('[data-next-btn]');
+      if (btn) btn.click();
+    }
+  }, { passive: false });
+})();
 </script>
 </body>
 </html>
