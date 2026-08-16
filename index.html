@@ -281,6 +281,7 @@ class Component extends DCLogic {
     sheetOpen: false,
     quantities: { menta: 0, frutas: 0, citrus: 0, melancia: 0 },
     confirmedPaid: false,
+    hasReachedStage2: false,
     resgatado: false,
     addedToCart: false,
     openFaq: {},
@@ -317,7 +318,7 @@ class Component extends DCLogic {
     if (total >= 3) return {};
     const newQty = { ...s.quantities, [key]: s.quantities[key] + 1 };
     const newTotal = Object.values(newQty).reduce((a, b) => a + b, 0);
-    return { quantities: newQty, confirmedPaid: newTotal === 3 };
+    return { quantities: newQty, confirmedPaid: newTotal === 3, ...(newTotal === 3 ? { hasReachedStage2: true } : {}) };
   });
   decreaseQty = (key) => this.setState(s => ({
     quantities: { ...s.quantities, [key]: Math.max(0, s.quantities[key] - 1) },
@@ -399,8 +400,8 @@ class Component extends DCLogic {
       sheetTitleStyle: `font:700 22px 'Space Grotesk',sans-serif;color:#04142f;line-height:1.2;flex:1${naturalStage === 1 || resgatado ? ';text-align:center' : ''}`,
       goForward: this.goForward,
       showBackBtn: naturalStage === 2 && !resgatado,
-      showFinalizeBtn: confirmedPaid,
-      showFreebieCard: !confirmedPaid,
+      showFinalizeBtn: this.state.hasReachedStage2,
+      showFreebieCard: !this.state.hasReachedStage2,
       backAction: this.backToFlavors,
       sheetSeg1: 'flex:1;height:5px;border-radius:3px;background:#1f9d55',
       sheetSeg2: `flex:1;height:5px;border-radius:3px;background:${naturalStage >= 2 ? '#1f9d55' : 'rgba(4,20,47,.12)'}`,
