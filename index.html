@@ -177,7 +177,6 @@ a:hover{color:#0f2d72}
       <div style="margin-top:8px;margin-bottom:14px;display:flex;gap:6px">
         <div style="{{ sheetSeg1 }}"></div>
         <div style="{{ sheetSeg2 }}"></div>
-        <div style="{{ sheetSeg3 }}"></div>
       </div>
 
       <div data-next-btn onClick="{{ goForward }}" style="display:none"></div>
@@ -238,38 +237,8 @@ a:hover{color:#0f2d72}
               </sc-if>
             </div>
 
-            <!-- stage 2: escolher sabor grátis -->
+            <!-- stage 2: brindes desbloqueados + finalizar -->
             <div style="{{ stage2PanelStyle }}">
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:10px;flex:1">
-                <sc-for list="{{ freeFlavorRows }}" as="fr" hint-placeholder-count="4">
-                  <sc-if value="{{ fr.selected }}" hint-placeholder-val="{{ false }}">
-                    <div onClick="{{ fr.onSelect }}" style="position:relative;border-radius:12px;border:2px solid #fceb2e;background:#fff;padding:6px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer">
-                      <div style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:#fceb2e;border:2px solid #04142f;display:flex;align-items:center;justify-content:center"><div style="width:6px;height:4px;border-left:1.5px solid #04142f;border-bottom:1.5px solid #04142f;transform:rotate(-45deg) translate(0.5px,-0.5px)"></div></div>
-                      <div style="width:100%;height:160px;background:#f0f3fb;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="{{ fr.img }}" alt="{{ fr.name }}" style="width:100%;height:100%;object-fit:cover"></div>
-                      <div style="font:700 12px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f;text-align:center">{{ fr.name }}</div>
-                    </div>
-                  </sc-if>
-                  <sc-if value="{{ fr.unselected }}" hint-placeholder-val="{{ true }}">
-                    <div onClick="{{ fr.onSelect }}" style="border-radius:12px;border:1px solid rgba(4,20,47,.15);background:#fff;padding:6px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer" style-hover="border-color:#fceb2e">
-                      <div style="width:100%;height:160px;background:#f0f3fb;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="{{ fr.img }}" alt="{{ fr.name }}" style="width:100%;height:100%;object-fit:cover"></div>
-                      <div style="font:700 12px 'Inter Italic','Space Grotesk',sans-serif;color:#04142f;text-align:center">{{ fr.name }}</div>
-                    </div>
-                  </sc-if>
-                </sc-for>
-              </div>
-              <sc-if value="{{ showFinalizeBtn }}" hint-placeholder-val="{{ false }}">
-                <div onClick="{{ addToCart }}" style="margin-top:auto;background:#fceb2e;color:#04142f;text-align:center;padding:17px;border-radius:10px;font:700 16px 'Inter Italic','Space Grotesk',sans-serif;cursor:pointer" style-hover="background:#0d2040">FINALIZAR COMPRA <span style="font-size:20px;vertical-align:middle">→</span></div>
-              </sc-if>
-              <sc-if value="{{ showFreebieCard }}" hint-placeholder-val="{{ true }}">
-                <div style="margin-top:auto;border:2px solid #04142f;border-radius:10px;background:#f0f3fb;padding:14px;display:flex;align-items:center;gap:12px">
-                  <div style="flex:1;font:600 12px/1.4 'Inter Italic','Space Grotesk',sans-serif;color:#04142f">Você já desbloqueou: 4º Pouch, Mouse Pad, Apoio de Teclado e Frete Grátis</div>
-                  <div style="width:60px;height:60px;flex:none;background:#dbe3f2;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center"><img key="{{ freebieImgKey }}" src="{{ currentPrizeImg }}" alt="Prêmios DOT" style="width:100%;height:100%;object-fit:contain;animation:prizePop .6s cubic-bezier(.22,1,.36,1)"></div>
-                </div>
-              </sc-if>
-            </div>
-
-            <!-- stage 3: brindes desbloqueados + finalizar -->
-            <div style="{{ stage3PanelStyle }}">
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:10px">
                 <sc-for list="{{ freebieList }}" as="fb" hint-placeholder-count="4">
                   <div style="position:relative;border-radius:12px;border:2px solid #fceb2e;background:#fff;padding:6px;display:flex;flex-direction:column;align-items:center;gap:5px">
@@ -315,7 +284,6 @@ class Component extends DCLogic {
   state = {
     sheetOpen: false,
     quantities: { menta: 0, frutas: 0, citrus: 0, melancia: 0 },
-    pickFree: null,
     confirmedPaid: false,
     resgatado: false,
     addedToCart: false,
@@ -323,7 +291,6 @@ class Component extends DCLogic {
     promoOpen: false,
     carouselTick: 0,
     stickyVisible: true,
-    hasReachedStage3: false,
   };
 
   componentDidMount() {
@@ -361,17 +328,12 @@ class Component extends DCLogic {
     confirmedPaid: false,
   }));
   backToFlavors = () => this.setState({ confirmedPaid: false });
-  backToFreeStep = () => this.setState(s => ({ lastPickFree: s.pickFree, pickFree: null }));
   goForward = () => {
-    const { quantities, confirmedPaid, pickFree, hasReachedStage3, lastPickFree } = this.state;
+    const { quantities, confirmedPaid } = this.state;
     const total = Object.values(quantities).reduce((a, b) => a + b, 0);
     if (!confirmedPaid && total === 3) { this.setState({ confirmedPaid: true }); return; }
-    if (confirmedPaid && pickFree === null && hasReachedStage3 && lastPickFree) {
-      this.setState({ pickFree: lastPickFree }); return;
-    }
-    if (confirmedPaid && pickFree !== null) { this.addToCart(); }
+    if (confirmedPaid) { this.addToCart(); }
   };
-  selectFree = (name) => this.setState({ pickFree: name, hasReachedStage3: true });
   resgatar = () => {
     document.body.style.overflow = '';
     try { window.top.location.href = 'https://minhadot.com'; } catch(e) { window.location.href = 'https://minhadot.com'; }
@@ -384,9 +346,9 @@ class Component extends DCLogic {
   togglePromo = () => this.setState(s => ({ promoOpen: !s.promoOpen }));
 
   renderVals() {
-    const { sheetOpen, quantities, pickFree, confirmedPaid, resgatado, addedToCart, openFaq, promoOpen, carouselTick, stickyVisible } = this.state;
+    const { sheetOpen, quantities, confirmedPaid, resgatado, addedToCart, openFaq, promoOpen, carouselTick, stickyVisible } = this.state;
     const totalQty = Object.values(quantities).reduce((a, b) => a + b, 0);
-    const naturalStage = !confirmedPaid ? 1 : pickFree == null ? 2 : 3;
+    const naturalStage = !confirmedPaid ? 1 : 2;
 
     const flavorRows = FLAVORS.map(f => {
       const qty = quantities[f.key];
@@ -405,18 +367,6 @@ class Component extends DCLogic {
         plusStyle: `padding:8px 13px;color:${canInc ? '#fff' : 'rgba(255,255,255,.3)'};font:700 18px 'Space Grotesk',sans-serif;cursor:pointer;user-select:none;line-height:1`,
       };
     });
-
-    const effectivePick = pickFree || this.state.lastPickFree || null;
-    const freeFlavorRows = FLAVORS.map(f => ({
-      name: f.name,
-      img: f.img,
-      badge: f.badge,
-      hasBadge: f.badge !== '',
-      selected: effectivePick === f.name,
-      unselected: effectivePick !== f.name,
-      onSelect: () => this.selectFree(f.name),
-      rowStyle: `position:relative;background:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:12px;flex:1;cursor:pointer;border:1.5px solid ${effectivePick === f.name ? '#1f9d55' : 'transparent'}`,
-    }));
 
     const FREEBIE_DEFS = [
       { label: 'Mouse Pad DOT', img: './assets/mousepad-dot.png', imgStyle: 'width:100%;height:100%;object-fit:contain' },
@@ -444,27 +394,20 @@ class Component extends DCLogic {
       addToCart: this.addToCart,
       resgatado,
       notResgatado: !resgatado,
-      stage1: naturalStage === 1 && !resgatado,
-      stage2: naturalStage === 2 && !resgatado,
-      stage3: naturalStage === 3 && !resgatado,
       stage1PanelStyle: `grid-area:1/1;min-width:0;box-sizing:border-box;padding:0 16px;display:flex;flex-direction:column;gap:10px;transform:translateX(${(1-naturalStage)*100}%);transition:transform .38s cubic-bezier(.25,.46,.45,.94)${naturalStage!==1?';pointer-events:none':''}`,
-      stage2PanelStyle: `grid-area:1/1;min-width:0;box-sizing:border-box;padding:0 16px;display:flex;flex-direction:column;gap:10px;transform:translateX(${(2-naturalStage)*100}%);transition:transform .38s cubic-bezier(.25,.46,.45,.94)${naturalStage!==2?';pointer-events:none':''}`,
-      stage3PanelStyle: `grid-area:1/1;min-width:0;box-sizing:border-box;padding:0 16px;display:flex;flex-direction:column;gap:12px;transform:translateX(${(3-naturalStage)*100}%);transition:transform .38s cubic-bezier(.25,.46,.45,.94)${naturalStage!==3?';pointer-events:none':''}`,
-      sheetTitle: resgatado ? 'Seu combo está pronto!' : naturalStage === 1 ? 'Escolha seus sabores' : naturalStage === 2 ? 'Escolha seu sabor grátis' : 'Você ganhou os brindes!',
+      stage2PanelStyle: `grid-area:1/1;min-width:0;box-sizing:border-box;padding:0 16px;display:flex;flex-direction:column;gap:12px;transform:translateX(${(2-naturalStage)*100}%);transition:transform .38s cubic-bezier(.25,.46,.45,.94)${naturalStage!==2?';pointer-events:none':''}`,
+      sheetTitle: resgatado ? 'Seu combo está pronto!' : naturalStage === 1 ? 'Escolha seus sabores' : 'Você ganhou os brindes!',
       sheetTitleStyle: `font:700 22px 'Space Grotesk',sans-serif;color:#04142f;line-height:1.2;flex:1${naturalStage === 1 || resgatado ? ';text-align:center' : ''}`,
       goForward: this.goForward,
-      showBackBtn: (naturalStage === 2 || naturalStage === 3) && !resgatado,
-      showFinalizeBtn: this.state.hasReachedStage3,
-      showFreebieCard: !this.state.hasReachedStage3,
-      backAction: naturalStage === 2 ? this.backToFlavors : this.backToFreeStep,
+      showBackBtn: naturalStage === 2 && !resgatado,
+      showFinalizeBtn: confirmedPaid,
+      showFreebieCard: !confirmedPaid,
+      backAction: this.backToFlavors,
       sheetSeg1: 'flex:1;height:5px;border-radius:3px;background:#1f9d55',
       sheetSeg2: `flex:1;height:5px;border-radius:3px;background:${naturalStage >= 2 ? '#1f9d55' : 'rgba(4,20,47,.12)'}`,
-      sheetSeg3: `flex:1;height:5px;border-radius:3px;background:${naturalStage >= 3 ? '#1f9d55' : 'rgba(4,20,47,.12)'}`,
       flavorRows,
-      freeFlavorRows,
       freebieList,
       backToFlavors: this.backToFlavors,
-      backToFreeStep: this.backToFreeStep,
       marqueeItems: [
         { text: 'OFERTA TERMINA EM 14 DIAS' },
         { text: 'APENAS 100 UNIDADES DISPONÍVEIS' },
