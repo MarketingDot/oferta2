@@ -200,8 +200,7 @@ a:hover{color:#0f2d72}
               <div style="text-align:right;font:700 12px 'Space Grotesk',sans-serif;color:#04142f">{{ flavorCountLabel }}</div>
               <div style="display:flex;flex-direction:column;gap:8px;background:#f0f3fb;border-radius:12px;padding:10px;flex:1">
                 <sc-for list="{{ flavorRows }}" as="fr" hint-placeholder-count="4">
-                  <sc-if value="{{ fr.hasQty }}" hint-placeholder-val="{{ false }}">
-                    <div style="position:relative;background:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:12px;flex:1">
+                    <div style="position:relative;background:#fff;border-radius:10px;padding:10px 12px;display:{{ fr.hasQtyDisplay }};align-items:center;gap:12px;flex:1">
                       <sc-if value="{{ fr.hasBadge }}" hint-placeholder-val="{{ false }}">
                         <div style="position:absolute;top:0;right:10px;background:#fceb2e;color:#04142f;font:700 8px 'Space Grotesk',sans-serif;padding:2px 7px;border-radius:0 0 6px 6px;letter-spacing:.3px;text-transform:uppercase">{{ fr.badge }}</div>
                       </sc-if>
@@ -213,17 +212,14 @@ a:hover{color:#0f2d72}
                         <div onClick="{{ fr.onIncrease }}" style="{{ fr.plusStyle }}">+</div>
                       </div>
                     </div>
-                  </sc-if>
-                  <sc-if value="{{ fr.noQty }}" hint-placeholder-val="{{ true }}">
-                    <div onClick="{{ fr.onIncrease }}" style="position:relative;background:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:12px;flex:1;cursor:pointer">
+                    <div onClick="{{ fr.onIncrease }}" style="position:relative;background:#fff;border-radius:10px;padding:10px 12px;display:{{ fr.noQtyDisplay }};align-items:center;gap:12px;flex:1;cursor:pointer">
                       <sc-if value="{{ fr.hasBadge }}" hint-placeholder-val="{{ false }}">
                         <div style="position:absolute;top:0;right:10px;background:#fceb2e;color:#04142f;font:700 8px 'Space Grotesk',sans-serif;padding:2px 7px;border-radius:0 0 6px 6px;letter-spacing:.3px;text-transform:uppercase">{{ fr.badge }}</div>
                       </sc-if>
-                      <div style="width:64px;height:64px;flex:none;border-radius:8px;overflow:hidden;background:#f0f3fb"><img src="{{ fr.img }}" alt="{{ fr.name }}" style="width:100%;height:100%;object-fit:cover"></div>
+                      <div style="width:64px;height:64px;flex:none;border-radius:8px;overflow:hidden;background:#f0f3fb"><img src="{{ fr.img }}" alt="{{ fr.name }}" style="width:100%;height:100%;object-fit:cover;pointer-events:none"></div>
                       <div style="flex:1;font:700 14px 'Space Grotesk',sans-serif;color:#04142f">{{ fr.name }}</div>
                       <div style="{{ fr.addBtnStyle }}">ADICIONAR +</div>
                     </div>
-                  </sc-if>
                 </sc-for>
               </div>
               <sc-if value="{{ showFinalizeBtn }}" hint-placeholder-val="{{ false }}">
@@ -361,6 +357,8 @@ class Component extends DCLogic {
         qty,
         hasQty: qty > 0,
         noQty: qty === 0,
+        hasQtyDisplay: qty > 0 ? 'flex' : 'none',
+        noQtyDisplay: qty === 0 ? 'flex' : 'none',
         onIncrease: () => this.increaseQty(f.key),
         onDecrease: () => this.decreaseQty(f.key),
         addBtnStyle: `background:${canInc ? '#04142f' : 'rgba(4,20,47,.2)'};color:#fff;border-radius:8px;padding:8px 14px;font:700 11px 'Space Grotesk',sans-serif;white-space:nowrap;flex:none;${canInc ? 'cursor:pointer' : 'cursor:not-allowed'}`,
