@@ -311,7 +311,7 @@ class Component extends DCLogic {
   closeSheet = () => {
     document.body.style.cssText = '';
     window.scrollTo(0, this._bodyScrollY || 0);
-    this.setState({ sheetOpen: false });
+    this.setState({ sheetOpen: false, confirmedPaid: false });
   };
   increaseQty = (key) => this.setState(s => {
     const total = Object.values(s.quantities).reduce((a, b) => a + b, 0);
